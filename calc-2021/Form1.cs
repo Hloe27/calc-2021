@@ -217,7 +217,7 @@ namespace calc_2021
                 txtresultado.Focus();
                 txtresultado.SelectionLength = txtresultado.TextLength;
             }
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13) 
             {
                 segundo = Convert.ToDouble(txtresultado.Text);
                 double resultado;
