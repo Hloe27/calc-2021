@@ -57,14 +57,14 @@ namespace calc_2021
             this.txtresultado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtresultado.Location = new System.Drawing.Point(21, 37);
             this.txtresultado.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtresultado.MaxLength = 32;
+            this.txtresultado.MaxLength = 17;
             this.txtresultado.Multiline = true;
             this.txtresultado.Name = "txtresultado";
-            this.txtresultado.ReadOnly = true;
             this.txtresultado.Size = new System.Drawing.Size(170, 30);
             this.txtresultado.TabIndex = 0;
             this.txtresultado.Text = "0";
             this.txtresultado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtresultado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtresultado_KeyPress);
             // 
             // btnce
             // 

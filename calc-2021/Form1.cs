@@ -199,5 +199,32 @@ namespace calc_2021
             }
            
         }
+
+        private void txtresultado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+           {
+                    e.Handled = true;
+           }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == 43){
+                primero = Convert.ToDouble(txtresultado.Text);
+                txtresultado.Text = "0";
+                txtresultado.Focus();
+                txtresultado.SelectionLength = txtresultado.TextLength;
+            }
+            if (e.KeyChar == 13)
+            {
+                segundo = Convert.ToDouble(txtresultado.Text);
+                double resultado;
+                    resultado = primero + segundo;
+                txtresultado.Text = resultado.ToString();
+            }
+            txtresultado.Focus();
+        }
     }
 }
