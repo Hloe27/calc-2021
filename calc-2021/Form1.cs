@@ -13,6 +13,7 @@ namespace calc_2021
     public partial class Form1 : Form
     {
         double primero = 0; double segundo = 0;
+                    int simbolos;
         string operador;
         public Form1()
         {
@@ -216,15 +217,45 @@ namespace calc_2021
                 txtresultado.Text = "0";
                 txtresultado.Focus();
                 txtresultado.SelectionLength = txtresultado.TextLength;
+                simbolos = 43;//suma
+            }
+            if (e.KeyChar == 45)
+            {
+                primero = Convert.ToDouble(txtresultado.Text);
+                txtresultado.Text = "0";
+                txtresultado.Focus();
+                txtresultado.SelectionLength = txtresultado.TextLength;
+                simbolos = 45;//resta
+
+            }
+            if (e.KeyChar == 42)
+            {
+                primero = Convert.ToDouble(txtresultado.Text);
+                txtresultado.Text = "0";
+                txtresultado.Focus();
+                txtresultado.SelectionLength = txtresultado.TextLength;
+                simbolos = 42; // multiplica
+            }
+            if (e.KeyChar == 47)
+            {
+                primero = Convert.ToDouble(txtresultado.Text);
+                txtresultado.Text = "0";
+                txtresultado.Focus();
+                txtresultado.SelectionLength = txtresultado.TextLength;
+                simbolos = 47;//division
             }
             if (e.KeyChar == 13) 
             {
                 segundo = Convert.ToDouble(txtresultado.Text);
-                double resultado;
-                    resultado = primero + segundo;
-                txtresultado.Text = resultado.ToString();
+                switch (simbolos)
+                {
+                    case 42: txtresultado.Text = (primero * segundo).ToString();break;
+                    case 43: txtresultado.Text = (primero + segundo).ToString(); break;
+                    case 45: txtresultado.Text = (primero - segundo).ToString(); break;
+                    case 47: txtresultado.Text = (primero / segundo).ToString(); break;
+                    default: MessageBox.Show("operador"+simbolos);break;
+                }
             }
-            txtresultado.Focus();
         }
     }
 }
